@@ -15,6 +15,11 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...FontAwesome.font,
+          'rubik':require('../assets/fonts/Rubik-Regular.ttf'),
+          'rubik-medium': require('../assets/fonts/Rubik-Medium.ttf'),
+          'comfortaa': require('../assets/fonts/Comfortaa-Regular.ttf'),
+          'comfortaa-medium': require('../assets/fonts/Comfortaa-Medium.ttf'),
+          'comfortaa-bold': require('../assets/fonts/Comfortaa-Bold.ttf'),
           'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
         });
       } catch (e) {
