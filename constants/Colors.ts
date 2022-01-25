@@ -1,18 +1,20 @@
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
+import tw from "../lib/tailwind";
+
+const tintColorLight = tw.color('primary');
+const tintColorDark = tw.color('secondary');
 
 export default {
   light: {
-    text: '#000',
-    background: '#fff',
+    text: tw.color('on-secondary'),
+    background: tw.color('background'),
     tint: tintColorLight,
-    tabIconDefault: '#ccc',
+    tabIconDefault: '#999',
     tabIconSelected: tintColorLight,
   },
   dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
+    text: '#ffffff',
+    background: tw.color('on-background'),
+    tint: '#00C4B4',
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
   },
