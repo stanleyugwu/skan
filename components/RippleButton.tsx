@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import * as React from "react";
 import { View, ViewProps } from "./Themed";
+import useColorScheme from "../hooks/useColorScheme";
 
 export type RippleButtonProps = {
   /** The color of the ripple effect */
@@ -14,7 +15,7 @@ export type RippleButtonProps = {
   /** Whether the effect will spread outside the container */
   borderless?: boolean;
   /** Callback to be called when card is pressed */
-  onPress?: (event:GestureResponderEvent) => void
+  onPress?: (event: GestureResponderEvent) => void;
 } & ViewProps;
 
 /** Polymorphic button component that will render a
@@ -29,32 +30,34 @@ const RippleButton = ({
   ...otherProps
 }: RippleButtonProps) => {
   if (Platform.OS === "android") {
+    const theme = useColorScheme();
+    if (theme === "dark") rippleColor = "#CAFFF4";
     return (
       <View {...otherProps}>
-      <TouchableNativeFeedback
-        accessibilityLabel={accessibilityLabel}
-        background={TouchableNativeFeedback.Ripple(rippleColor, borderless)}
-        style={{backgroundColor:"transparent"}}
-        onPress={onPress}
-        useForeground
-        {...otherProps}
-      >
-        {children}
-      </TouchableNativeFeedback>
+        <TouchableNativeFeedback
+          accessibilityLabel={accessibilityLabel}
+          background={TouchableNativeFeedback.Ripple(rippleColor, borderless)}
+          style={{ backgroundColor: "transparent" }}
+          onPress={onPress}
+          useForeground
+          {...otherProps}
+        >
+          {children}
+        </TouchableNativeFeedback>
       </View>
     );
   }
 
   return (
     <View {...otherProps}>
-    <TouchableOpacity
-      accessibilityLabel={accessibilityLabel}
-      activeOpacity={0.7}
-      onPress={onPress}
-      {...otherProps}
-    >
-      {children}
-    </TouchableOpacity>
+      <TouchableOpacity
+        accessibilityLabel={accessibilityLabel}
+        activeOpacity={0.7}
+        onPress={onPress}
+        {...otherProps}
+      >
+        {children}
+      </TouchableOpacity>
     </View>
   );
 };
