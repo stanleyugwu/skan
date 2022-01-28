@@ -26,9 +26,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 
 export type RootTabParamList = {
   "Top-Up": undefined;
-  Settings: {
-    networkName:string
-  };
+  Settings: undefined
 };
 
 export type NetworkName = "mtn" | "airtel" | "glo" | "etisalat";
