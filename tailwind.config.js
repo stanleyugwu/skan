@@ -13,14 +13,14 @@ module.exports = {
         "on-secondary": "#ffffff",
 
         background: "#f4f4f4",
-        "on-background": "#000000d9",
+        "on-background": "#262626",
 
         surface: "#ffffff",
-        "on-surface": "#000000de",
+        "on-surface": "#212121",
 
         error:'#B00020',
-        outline:"rgba(0,0,0,0.12)",
-        'on-dark':'rgba(255,255,255,0.8)'
+        outline:"#e0e0e0",
+        'on-dark':'#d6d6d6'
       },
       fontFamily:{
         rubik:['rubik','sans-serif'],
