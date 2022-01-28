@@ -25,9 +25,29 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  "Top-Up": undefined;
+  Settings: {
+    networkName:string
+  };
 };
+
+export type NetworkName = "mtn" | "airtel" | "glo" | "etisalat";
+
+export type SettingsSlice = {
+  favoriteNetwork: NetworkName | null,
+  prefixCodes: {
+    mtn: string;
+    airtel: string;
+    glo: string;
+    etisalat: string;
+  }
+}
+
+export type SetPrefixPayload = Record<NetworkName, string>;
+
+export type RootState = {
+  settings: SettingsSlice
+}
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
   BottomTabScreenProps<RootTabParamList, Screen>,
