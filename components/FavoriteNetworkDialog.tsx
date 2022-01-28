@@ -40,7 +40,6 @@ const FavoriteNetworkDialog = ({
   accessibilityLabel = "Favorite network dialog",
   ...otherProps
 }: FavoriteNetworkDialogTypes) => {
-  const theme = useColorScheme();
   return (
     <Modal
       accessibilityLabel={accessibilityLabel}
@@ -53,13 +52,13 @@ const FavoriteNetworkDialog = ({
       <View
         style={tw`h-full w-full`}
         lightColor="#0005"
-        darkColor="#0008"
+        darkColor="#fff8"
         /** Dismiss modal when the backgound is touched */
         onTouchStart={onDismiss}
         accessibilityLabel="modal outer background"
       >
         <View
-          style={[tw`max-w-md m-auto p-4`, { minWidth: 300 }]}
+          style={[tw`max-w-md m-auto p-4 rounded-xl`, { minWidth: 300, }]}
           accessibilityLabel="modal main"
           onTouchStart={(e) => e.stopPropagation()}
           lightColor={tw.color("surface")}
@@ -74,8 +73,8 @@ const FavoriteNetworkDialog = ({
           {networkNames.map((networkName) => (
             <RippleButton
               lightColor="transparent"
-              rippleColor={theme === "dark" ? "#CAFFF4" : undefined}
               onPress={() => onSelect(networkName)}
+              key={networkName}
               accessibilityLabel={`${networkName} radio selector button`}
             >
               <View
